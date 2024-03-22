@@ -50,9 +50,7 @@ end
 local function read_meta(m)
     if m[yaml_key] then -- if nil then don't bother
         for k,v in pairs(m[yaml_key]) do
-            if v.t == "MetaInlines" then
-                abbreviations[k] = v
-            end
+            abbreviations[k] = v
         end
     end
 end
@@ -74,10 +72,18 @@ function get_vars (meta)
 end
 
 function replace (elem)
+  
   for k, v in pairs(abbreviations) do
       if elem.text == k then
-        return v
+          if elem.t == "Code" then
+              -- partial support for `+abbrev` should stay in code
+              elem.text = v[1].text 
+              return elem
+          else 
+              return v 
+          end
       elseif string.find(elem.text, "^[%[%(—–]*" .. k .. "[%]%)%p…—–]*$") then
+        -- handling (+abbrev) or +abbrev...  
         local _, _, p1, p2 = string.find(elem.text, "^([%[%(—–]*)" .. k .. "([%]%)%p…—–]*)$")
         local r = deepcopy(v)
         if p1  then
@@ -91,5 +97,5 @@ function replace (elem)
   end
 end
 
-return {{Meta = get_vars}, {Str = replace}}
+return {{Meta = get_vars}, {Str = replace}, {Code = replace } }
 

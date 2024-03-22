@@ -2,4 +2,15 @@
 abbreviations:
    +ymmv: "your mileage may vary"
    +yolo: "you only live once"
-...
+   +hello: "Hello World!"
+   +mE: "MicroEmacs 2009"
+   +mS: "MicroEmacs"
+   +nE: "NanoEmacs 2009"
+   +nS: "NanoEmacs"
+   +cX: "C-x &"
+   +dE: "delete"
+   +eS: "esc"
+   +bS: "backspace"
+...   
+
+
