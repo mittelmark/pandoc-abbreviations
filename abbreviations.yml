@@ -11,6 +11,7 @@ abbreviations:
    +dE: "delete"
    +eS: "esc"
    +bS: "backspace"
+   +add-file-hook(2): "[add-file-hook(2)](m2cmd003.md)"
 ...   
 
 

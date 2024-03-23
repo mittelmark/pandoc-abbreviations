@@ -35,4 +35,7 @@ This is the +mE text editor.
 
 Starting with the `+eS` key you can perform some commands in the command line mode.
 
+Translate links like:
+
++add-file-hook(2) into true Markdown links?
 
